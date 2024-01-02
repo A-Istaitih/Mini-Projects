@@ -1,3 +1,3 @@
-# Build Your OwnX
+# Mini Projects
 
 1. Chess Engine
