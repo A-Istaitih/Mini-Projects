@@ -1,3 +1,3 @@
 # Build Your OwnX
 
-First Project : Chess Engine
+1. Chess Engine
