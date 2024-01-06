@@ -1,10 +1,10 @@
-#ifndef DEFS_H
+#ifndef DEFS_H // if not defined
 #define DEFS_H
 
 typedef unsigned long long U64; //64 squares in chess
 
 #define NAME "Vice 1.0"
-#define BRD_SQ_NUM 120
+#define BRD_SQ_NUM 120 // board + borders that we added
 
 #define MAXGAMEMOVES 2048 //I've searched in Google the max moves of a game is 2048
 
@@ -25,7 +25,7 @@ enum {
     A8 = 91, B8, C8, D8, E8, F8, G8, H8, NO_SQ
 }; //each square
 
-enum { FALSE,TRUE };
+enum { FALSE,TRUE }; //0 1
 
 //               0 0 0 0 
 enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8 }; //if the Queen/King Castle can "Castling" 1 for yes
@@ -42,7 +42,7 @@ typedef struct{
 
 typedef struct{
     
-    int pieces[BRD_SQ_NUM];
+    int pieces[BRD_SQ_NUM]; 
     U64 pawns[3]; //3 because there is black, white, both
 
     int KingSq[2];
@@ -54,7 +54,7 @@ typedef struct{
     int ply;
     int hisPly;
 
-    int castlePerm;
+    int castlePerm; //castle permission
 
     U64 posKey; //where the piece was played
 
