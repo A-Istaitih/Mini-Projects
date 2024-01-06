@@ -6,6 +6,8 @@ typedef unsigned long long U64; //64 squares in chess
 #define NAME "Vice 1.0"
 #define BRD_SQ_NUM 120
 
+#define MAXGAMEMOVES 2048 //I've searched in Google the max moves of a game is 2048
+
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK }; //pieces of chess
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE }; //col
 enum { RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_NONE }; //row
@@ -25,6 +27,19 @@ enum {
 
 enum { FALSE,TRUE };
 
+//               0 0 0 0 
+enum { WKCA = 1, WQCA = 2, BKCA = 4, BQCA = 8 }; //if the Queen/King Castle can "Castling" 1 for yes
+
+typedef struct{
+
+    int move; //the move that have been made
+    int castlePerm; //the castle permission
+    int enPas;
+    int fiftyMove; 
+    U64 posKey;
+
+} S_UNDO; //details of a move
+
 typedef struct{
     
     int pieces[BRD_SQ_NUM];
@@ -39,12 +54,16 @@ typedef struct{
     int ply;
     int hisPly;
 
-    U64 posKey;
+    int castlePerm;
+
+    U64 posKey; //where the piece was played
 
     int pceNum[13];
     int bigPce[3];
     int majPce[3];
     int minPce[3];
+
+    S_UNDO history[MAXGAMEMOVES]; //all moves done
 
 } S_BOARD;
 
