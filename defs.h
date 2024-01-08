@@ -73,7 +73,7 @@ typedef struct{
 
     int castlePerm; //castle permission
 
-    U64 posKey; //where the piece was played
+    U64 posKey; //where the piece was played H8 G8 .... B1 A1
 
     int pceNum[13];
     int bigPce[3];
@@ -91,6 +91,7 @@ typedef struct{
 //MACROS
 
 #define FR2SQ(f, r) ((21 + (f)) + ((r) * 10));
+#define SQ64(sq120) Sq120ToSq64[sq120]
 
 //GLOBALS
 
@@ -98,7 +99,10 @@ extern int Sq120ToSq64[BRD_SQ_NUM];
 extern int Sq64ToSq120[64];
 
 //FUNCTIONS
-
+//init.c
 extern void AllInit();
+
+//bitboards.c
+extern void PrintBitBoard(U64 bb);
 
 #endif
