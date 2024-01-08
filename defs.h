@@ -10,7 +10,7 @@ typedef unsigned long long U64; //64 squares in chess
 
 enum { EMPTY, wP, wN, wB, wR, wQ, wK, bP, bN, bB, bR, bQ, bK }; //pieces of chess
 enum { FILE_A, FILE_B, FILE_C, FILE_D, FILE_E, FILE_F, FILE_G, FILE_H, FILE_NONE }; //col
-enum { RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_NONE }; //row
+enum { RANK_1, RANK_2, RANK_3, RANK_4, RANK_5, RANK_6, RANK_7, RANK_8, RANK_NONE }; //row
 
 enum { WHITE, BLACK, BOTH }; //colors
 
@@ -66,5 +66,18 @@ typedef struct{
     S_UNDO history[MAXGAMEMOVES]; //all moves done
 
 } S_BOARD;
+
+//MACROS
+
+#define FR2SQ(f, r) ((21 + (f)) + ((r) * 10));
+
+//GLOBALS
+
+extern int Sq120ToSq64[BRD_SQ_NUM];
+extern int Sq64ToSq120[64];
+
+//FUNCTIONS
+
+extern void AllInit();
 
 #endif
