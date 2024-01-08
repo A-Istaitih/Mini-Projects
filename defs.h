@@ -1,6 +1,23 @@
 #ifndef DEFS_H // if not defined
 #define DEFS_H
 
+#include <stdlib.h>
+
+#define DEBUG 
+
+#ifndef DEBUG
+#define ASSERT(n)
+#else
+#define ASSERT(n) \
+if(!(n)) { \
+printf("%s - Failed ", #n); \
+printf("On %s ",__DATE__); \
+printf("At %s ",__TIME__); \
+printf("In File %s ",__FILE__); \
+printf("At Line %d\n",__LINE__); \
+exit(1);}
+#endif
+
 typedef unsigned long long U64; //64 squares in chess
 
 #define NAME "Vice 1.0"
@@ -64,6 +81,10 @@ typedef struct{
     int minPce[3];
 
     S_UNDO history[MAXGAMEMOVES]; //all moves done
+
+    //piece list
+    int pList[13][10];
+
 
 } S_BOARD;
 
