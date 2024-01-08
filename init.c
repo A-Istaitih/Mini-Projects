@@ -16,7 +16,7 @@ void InitSq120To64(){
     }
 
     for(rank = RANK_1; rank <= RANK_8; ++rank){//filling the converting arrays
-        for(file = FILE_A; file <= F8; ++file){
+        for(file = FILE_A; file <= FILE_H; ++file){
             sq = FR2SQ(file, rank);
             Sq64ToSq120[sq64] = sq;
             Sq120ToSq64[sq] = sq64;
@@ -24,6 +24,8 @@ void InitSq120To64(){
         }
     }
 }
+
 void AllInit(){
-    
+    InitSq120To64();
+
 }
