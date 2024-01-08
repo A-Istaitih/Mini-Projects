@@ -1,3 +1,3 @@
 all:
-	clang vice.c -o vice
+	clang vice.c init.c -o vice
 	./vice
