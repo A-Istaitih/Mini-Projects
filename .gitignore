@@ -1,3 +1,5 @@
+#Unwanted files
+*.json
 
 #Executable files
 vice
