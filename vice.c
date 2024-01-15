@@ -1,22 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "defs.h"
 
 int main(){
 
     AllInit();
+    
+    int PieceOne = rand();
+    int PieceTwo = rand();
+    int PieceThree = rand();
+    int PieceFour = rand();
 
-    U64 play = 0ULL;
-    printf("Start:\n\n");
-    PrintBitBoard(play);
+    printf("PieceOne:%X\n", PieceOne);
+    printf("PieceTwo:%X\n", PieceTwo);
+    printf("PieceThree:%X\n", PieceThree);
+    printf("PieceFour:%X\n", PieceFour);
 
-    play |= (1ULL << SQ64(D2));
+    int Key = PieceOne ^ PieceTwo ^ PieceThree ^ PieceFour;
+    int TempKey = PieceOne;
+    TempKey ^= PieceThree;
+    TempKey ^= PieceFour;
+    TempKey ^= PieceTwo;
 
-    printf("D2 Added:\n\n");
-    PrintBitBoard(play);
+    printf("key: %X\n", Key);
+    printf("tmp: %X\n %lu",TempKey, sizeof(int));
 
-    play |= (1ULL << SQ64(G2));
-
-    printf("G2 Added:\n\n");
-    PrintBitBoard(play);
     return 0;
 }
