@@ -1,5 +1,6 @@
 #Unwanted files
 *.json
+.DS_Store
 
 #Executable files
 vice
