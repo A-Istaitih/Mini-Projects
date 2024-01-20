@@ -4,7 +4,7 @@
 
 int main(){
 
-    AllInit();
+    AllInit(); //Initalizing Arrays
     
     int PieceOne = rand();
     int PieceTwo = rand();
